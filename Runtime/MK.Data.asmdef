@@ -1,0 +1,11 @@
+{
+  "name": "MK.Data",
+  "rootNamespace": "MK.Data",
+  "references": [
+    "UniTask",
+    "MK.Extensions",
+    "MK.AssetsManager",
+    "MK.Log",
+    "MK.DependencyInjection"
+  ]
+}
