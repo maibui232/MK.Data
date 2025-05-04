@@ -6,12 +6,12 @@ namespace MK.Data
 
     internal sealed class ConverterResolver
     {
-        private readonly IDiResolver                  diResolver;
+        private readonly IResolver                    resolver;
         private readonly Dictionary<Type, IConverter> typeToConverter = new();
 
-        public ConverterResolver(IDiResolver diResolver)
+        public ConverterResolver(IResolver resolver)
         {
-            this.diResolver = diResolver;
+            this.resolver = resolver;
         }
 
         public void AddConverter<T>() where T : IConverter
@@ -22,7 +22,7 @@ namespace MK.Data
                 throw new ArgumentException($"Converter '{typeof(T)}' already registered.");
             }
 
-            this.typeToConverter.Add(type, this.diResolver.Instantiate<T>());
+            this.typeToConverter.Add(type, this.resolver.Instantiate<T>());
         }
 
         public IConverter GetConverter<T>()

@@ -5,7 +5,7 @@ namespace MK.Data
     using System.Threading;
     using Cysharp.Threading.Tasks;
 
-    public interface IStorage
+    internal interface IStorage
     {
         IData Load(Type type);
 

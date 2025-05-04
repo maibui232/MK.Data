@@ -11,7 +11,7 @@ namespace MK.Data
     using UnityEngine;
     using ILogger = MK.Log.ILogger;
 
-    public class JsonStorage : IStorage
+    internal sealed class JsonStorage : IStorage
     {
         private readonly IAssetsManager            assetsManager;
         private readonly ILogger                   logger;
