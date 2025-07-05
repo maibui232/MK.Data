@@ -6,6 +6,7 @@
     "MK.Extensions",
     "MK.AssetsManager",
     "MK.Log",
-    "MK.DependencyInjection"
+    "MK.DependencyInjection",
+    "MK.Kernel"
   ]
 }

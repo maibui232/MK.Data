@@ -2,7 +2,7 @@ namespace MK.Data
 {
     using System;
     using System.Collections.Generic;
-    using MK.DependencyInjection;
+    using MK.Kernel;
 
     internal sealed class ConverterResolver
     {
