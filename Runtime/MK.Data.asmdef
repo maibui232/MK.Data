@@ -4,9 +4,8 @@
   "references": [
     "UniTask",
     "MK.Extensions",
-    "MK.AssetsManager",
     "MK.Log",
-    "MK.DependencyInjection",
-    "MK.Kernel"
+    "MK.Kernel",
+    "MK.AssetsManager"
   ]
 }
