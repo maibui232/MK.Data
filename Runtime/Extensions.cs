@@ -7,6 +7,7 @@ namespace MK.Data
     {
         public static void ThrowIfNotAssignable(this ILogger logger, Type type, Type baseType)
         {
+            if (baseType.IsAssignableFrom(type)) return;
             logger.Fatal(new Exception($"{type.FullName} is not assignable to {baseType.FullName}"));
         }
     }

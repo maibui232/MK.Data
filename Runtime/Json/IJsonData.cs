@@ -1,6 +1,6 @@
 namespace MK.Data
 {
-    public class IJsonData
+    public interface IJsonData : IData
     {
     }
 }

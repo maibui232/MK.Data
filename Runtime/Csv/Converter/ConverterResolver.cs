@@ -2,9 +2,10 @@ namespace MK.Data
 {
     using System;
     using System.Collections.Generic;
+    using MK.Extensions;
     using MK.Kernel;
 
-    internal sealed class ConverterResolver
+    internal sealed class ConverterResolver : IInitializable
     {
         private readonly IResolver                    resolver;
         private readonly Dictionary<Type, IConverter> typeToConverter = new();
@@ -14,20 +15,14 @@ namespace MK.Data
             this.resolver = resolver;
         }
 
-        public void AddConverter<T>() where T : IConverter
+        void IInitializable.Initialize()
         {
-            var type = typeof(T);
-            if (this.typeToConverter.ContainsKey(type))
-            {
-                throw new ArgumentException($"Converter '{typeof(T)}' already registered.");
-            }
-
-            this.typeToConverter.Add(type, this.resolver.Instantiate<T>());
-        }
-
-        public IConverter GetConverter<T>()
-        {
-            return this.GetConverter(typeof(T));
+            typeof(IConverter).GetDerivedTypes()
+               .ForEach(type =>
+                        {
+                            var converter = (IConverter)this.resolver.Instantiate(type);
+                            this.typeToConverter.Add(converter.TargetType, converter);
+                        });
         }
 
         public IConverter GetConverter(Type type)

@@ -1,6 +1,6 @@
 namespace MK.Data
 {
-    public interface ICsvData
+    public interface ICsvData : IData
     {
     }
 }
