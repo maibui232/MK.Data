@@ -5,7 +5,7 @@ namespace MK.Data
     using MK.Extensions;
     using MK.Kernel;
 
-    internal sealed class ConverterResolver : IInitializable
+    public sealed class ConverterResolver : IInitializable
     {
         private readonly IResolver                    resolver;
         private readonly Dictionary<Type, IConverter> typeToConverter = new();
